@@ -12,8 +12,8 @@ export function fetchTrending() {
   return fetchWithErrorHandling(`${BASE_URL}trending/movie/day?api_key=${KEY}`);
 }
 
-export function fetchSearchMovie() {
-  return fetchWithErrorHandling(`${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&page=1&include_adult=false`);
+export function fetchSearchMovie(name) {
+  return fetchWithErrorHandling(`${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${name}`);
 }
 
 export function fetchGetMovieDetails (movieId) {
@@ -21,5 +21,5 @@ export function fetchGetMovieDetails (movieId) {
 }
 
 export function fetchGetMovieReviews  (movieId) {
-  return fetchWithErrorHandling(`${BASE_URL}/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`);
+  return fetchWithErrorHandling(`${BASE_URL}/movie/${movieId}/reviews?api_key=${KEY}&language=en-US`);
 }

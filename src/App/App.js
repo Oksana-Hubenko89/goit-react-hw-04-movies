@@ -5,11 +5,6 @@ import React from 'react';
 import { Switch, Route} from 'react-router-dom';
 // import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//import HomePage from '../views/HomePage';
-//import MoviesPage from '../views/MoviesPage';
-//import MovieDetailsPage from '../views/MovieDetailsPage';
-//import Cast from '../views/Cast';
-//import Reviews from '../views/Reviews';
 import AppBar from '../components/AppBar';
 import Container from '../components/Container';
 
@@ -21,13 +16,7 @@ const MoviesPage = lazy(() =>
   import('../views/MoviesPage' /* webpackChunkName: "movie-view" */),
 );
 const MovieDetailsPage = lazy(() =>
-  import('../views/MovieDetailsPage'),
-);
-const Cast = lazy(() =>
-  import('../views/Cast'),
-);
-const Reviews = lazy(() =>
-  import('../views/Reviews'),
+  import('../views/MovieDetailsPage' /* webpackChunkName: "movie-detali-page" */),
 );
 const NotFoundView = lazy(() =>
   import('../views/NotFoundView'));
@@ -36,14 +25,15 @@ const NotFoundView = lazy(() =>
 const App = () => (
   <div>
     <Container>
-       <AppBar />
+     <AppBar />
      <Suspense fallback={<h1>ЗАГРУЖАЕМ МАРШРУТ...</h1>}>
     <Switch>
-      <Route path="/" exact ><HomePage/></Route>
-      <Route path="/movies"  exact ><MoviesPage/></Route> 
-      <Route path="/movies/:movieId"><MovieDetailsPage/></Route> 
-      <Route path="/movies/:movieId/cast"> <Cast/></Route> 
-      <Route path="/movies/:movieId/reviews"><Reviews/> </Route>
+          <Route path="/" exact component={HomePage}></Route>
+          
+      <Route path="/movies/:movieId" component={MovieDetailsPage}></Route>
+      
+          <Route path="/movies" exact component={MoviesPage}></Route> 
+          
       <Route>
             <NotFoundView />
       </Route>
