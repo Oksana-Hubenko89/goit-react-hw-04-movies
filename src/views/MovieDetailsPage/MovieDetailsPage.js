@@ -44,8 +44,7 @@ class MovieDetailsPage extends Component {
         (<li key={id}>{name}</li>)
           ))
         }
-        <p>{}</p>
-
+        
       <div>
       <NavLink
         exact
