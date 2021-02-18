@@ -18,7 +18,7 @@ class Cast extends Component {
   render() {
     return (
       <>
-         {this.state.cast ?(
+         {this.state.cast?(
                 <ul>
                     {this.state.cast.map(({id,name,character,profile_path}) => (
                         <li key={id}>

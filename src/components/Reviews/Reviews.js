@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 class Reviews extends Component {
   state = {
-      results: null,
+      results: [],
   };
    
   async componentDidMount() {
@@ -18,7 +18,8 @@ class Reviews extends Component {
   render() {
     return (
       <>
-         {this.state.results?(
+        {this.state.results.length === 0 ? (<h3>Отсутствует информиация</h3>) :
+        (
                 <ul>
                     {this.state.results.map(({id,author,content}) => (
                         <li key={id}>
@@ -27,7 +28,7 @@ class Reviews extends Component {
                         </li>
                     ))}
                 </ul>
-               ):(<h3>Отсутствует информиация</h3>)} 
+               )} 
       </>
     )
   }

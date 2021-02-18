@@ -45,7 +45,9 @@ class MovieDetailsPage extends Component {
           ))
         }
         
-      <div>
+        <div>
+          <hr/>
+           <p>Additional information</p>
       <NavLink
         exact
         to={`${this.props.match.url}/cast`}
@@ -60,13 +62,14 @@ class MovieDetailsPage extends Component {
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-          Reviews
+              Reviews
       </NavLink>
+        <hr/>    
         </div>
         
         <Route path="/movies/:movieId/cast" component={Cast}/>
         <Route path="/movies/:movieId/reviews"  component={Reviews}/>
-          
+        
       </>
     )
   }
