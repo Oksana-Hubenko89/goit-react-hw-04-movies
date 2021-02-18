@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 
+
 class Reviews extends Component {
   state = {
       results: [],
@@ -18,7 +19,7 @@ class Reviews extends Component {
   render() {
     return (
       <>
-        {this.state.results.length === 0 ? (<h3>Отсутствует информиация</h3>) :
+               {this.state.results.length === 0 ? (<h3>Отсутствует информиация</h3>) :
         (
                 <ul>
                     {this.state.results.map(({id,author,content}) => (

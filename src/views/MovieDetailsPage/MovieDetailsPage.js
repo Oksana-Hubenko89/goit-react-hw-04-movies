@@ -27,10 +27,16 @@ class MovieDetailsPage extends Component {
     this.setState({...response.data }); 
         console.log(response.data)
     }
-   
+  
+    handleGoBack = () => {
+      this.props.history.push(this.props.location?.state?.from || "/movies")  
+     
+    }
+  
   render() {
     return (
       <>
+         <button type="button" onClick={this.handleGoBack }>Go back</button>
         <img src={this.state.poster_path ?
           `https://image.tmdb.org/t/p/w300${this.state.poster_path}` : "http://dummyimage.com/300x400/99cccc.gif&text=No+picture"} className='singleMovie-img' alt={this.state.title} />
         <h2>{this.state.title} {this.state.release_date}</h2>

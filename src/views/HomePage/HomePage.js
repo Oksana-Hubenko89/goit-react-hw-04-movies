@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 //import * as API from '../../service/API/API';
 import Axios from 'axios';
 //import { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link , withRouter} from 'react-router-dom';
 import PageHeading from '../../components/PageHeading';
 
 class HomePage extends Component {
@@ -16,6 +16,7 @@ class HomePage extends Component {
         console.log(response.data.results)
         this.setState({ movieTrending: response.data.results })
     }
+
     render() {
        
         return (
@@ -26,7 +27,12 @@ class HomePage extends Component {
                 <ul>
                     {this.state.movieTrending.map(movie => (
                         <li key={movie.id}>
-                            <Link to={`movies/${movie.id}`}>{movie.title}{movie.release_date}</Link>
+                            <Link to={{
+                                pathname: `movies/${movie.id}`,
+                                state: {
+                                from:this.props.location
+                            }
+                            }}>{movie.title}{movie.release_date}</Link>
                         </li>
                     ))}
                 </ul>
@@ -38,4 +44,4 @@ class HomePage extends Component {
     }
 }      
     
-export default HomePage;
+export default withRouter(HomePage);

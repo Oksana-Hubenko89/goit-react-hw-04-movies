@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 class Cast extends Component {
   state = {
-    cast: null,
+    cast: [],
   };
    
   async componentDidMount() {
@@ -18,7 +18,7 @@ class Cast extends Component {
   render() {
     return (
       <>
-         {this.state.cast?(
+         {this.state.cast.length>0?(
                 <ul>
                     {this.state.cast.map(({id,name,character,profile_path}) => (
                         <li key={id}>
