@@ -29,11 +29,8 @@ const App = () => (
      <Suspense fallback={<h1>ЗАГРУЖАЕМ МАРШРУТ...</h1>}>
     <Switch>
           <Route path="/" exact component={HomePage}></Route>
-          
-      <Route path="/movies/:movieId" component={MovieDetailsPage}></Route>
-      
+          <Route path="/movies/:movieId" component={MovieDetailsPage}></Route>
           <Route path="/movies" exact component={MoviesPage}></Route> 
-          
       <Route>
             <NotFoundView />
       </Route>
@@ -42,7 +39,5 @@ const App = () => (
       </Container>
   </div>
 );
-
-
 
 export default App;

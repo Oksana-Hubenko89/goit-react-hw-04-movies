@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
+import * as API from '../../service/API/API';
 
 class Cast extends Component {
   state = {
@@ -10,7 +10,7 @@ class Cast extends Component {
     console.log(this.props.match.params.movieId)
     const { movieId } = this.props.match.params;
     
-    const response = await Axios.get(` https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=461700ffddee4ce5239e6dda1aad5503`);
+    const response = await API.CastApi(movieId);
     this.setState({ ...response.data});
     console.log(response.data)
   }
@@ -19,7 +19,7 @@ class Cast extends Component {
     return (
       <>
          {this.state.cast.length>0?(
-                <ul>
+                <ul onClick={this.props.onClick}>
                     {this.state.cast.map(({id,name,character,profile_path}) => (
                         <li key={id}>
         <img src={profile_path ?

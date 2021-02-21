@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-//import * as API from '../../service/API/API';
-import Axios from 'axios';
-//import { useState, useEffect} from 'react';
-import { Link , withRouter} from 'react-router-dom';
+import * as API from '../../service/API/API';
+import { withRouter} from 'react-router-dom';
 import PageHeading from '../../components/PageHeading';
+import MovieList from '../../components/MovieList'
 
 class HomePage extends Component {
 
@@ -12,36 +11,28 @@ class HomePage extends Component {
     };
    
     async componentDidMount() {
-        const response = await Axios.get(` https://api.themoviedb.org/3/trending/movie/day?api_key=461700ffddee4ce5239e6dda1aad5503`);
-        console.log(response.data.results)
+       
+        const response = await API.Trending();
+        console.log(response.data.results);
         this.setState({ movieTrending: response.data.results })
+        
     }
 
     render() {
-       
+      const {movieTrending} =this.state;
+        const { location } = this.props;
         return (
             <>
                 <PageHeading text="Movies Trending" />
 
-                {this.state.movieTrending && (
-                <ul>
-                    {this.state.movieTrending.map(movie => (
-                        <li key={movie.id}>
-                            <Link to={{
-                                pathname: `movies/${movie.id}`,
-                                state: {
-                                from:this.props.location
-                            }
-                            }}>{movie.title}{movie.release_date}</Link>
-                        </li>
-                    ))}
-                </ul>
-                
+                {movieTrending && (
+                    <MovieList movie={movieTrending} location={location}/>
                )} 
             </>
-     
         );
     }
 }      
     
 export default withRouter(HomePage);
+
+
