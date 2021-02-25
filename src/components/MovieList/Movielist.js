@@ -9,7 +9,7 @@ const MovieList = ({ movie,location}) => {
                             <Link to={{
                                 pathname: `movies/${id}`,
                                 state: {
-                                from:location
+                                from:location,
                             }
                             }}>{title}{release_date}</Link>
                         </li>

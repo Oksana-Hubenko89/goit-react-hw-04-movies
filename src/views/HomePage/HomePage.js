@@ -4,6 +4,7 @@ import { withRouter} from 'react-router-dom';
 import PageHeading from '../../components/PageHeading';
 import MovieList from '../../components/MovieList'
 
+
 class HomePage extends Component {
 
     state = {
@@ -12,11 +13,12 @@ class HomePage extends Component {
    
     async componentDidMount() {
        
-        const response = await API.Trending();
-        console.log(response.data.results);
-        this.setState({ movieTrending: response.data.results })
+            const response = await API.Trending();
+            console.log(response.data.results);
+            this.setState({ movieTrending: response.data.results })
         
-    }
+        
+    } 
 
     render() {
       const {movieTrending} =this.state;

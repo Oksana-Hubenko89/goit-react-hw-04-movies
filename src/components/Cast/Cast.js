@@ -7,6 +7,7 @@ class Cast extends Component {
   };
    
   async componentDidMount() {
+    //this.props.history.replace(this.props.history.location)
     console.log(this.props.match.params.movieId)
     const { movieId } = this.props.match.params;
     
@@ -19,13 +20,13 @@ class Cast extends Component {
     return (
       <>
          {this.state.cast.length>0?(
-                <ul onClick={this.props.onClick}>
+                <ul onClick={this.props.handleGoBack} >
                     {this.state.cast.map(({id,name,character,profile_path}) => (
-                        <li key={id}>
+                        <li key={id} >
         <img src={profile_path ?
           `https://image.tmdb.org/t/p/w300${profile_path}` : "http://dummyimage.com/300x400/99cccc.gif&text=No+picture"} className='imgCast' alt={name} />
-        <h2>{name} </h2>
-        <h2>Character: {character}</h2>
+        <p>{name} </p>
+        <p>Character: {character}</p>
                         </li>
                     ))}
                 </ul>

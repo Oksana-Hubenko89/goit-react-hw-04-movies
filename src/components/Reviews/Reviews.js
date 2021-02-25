@@ -7,7 +7,7 @@ class Reviews extends Component {
   };
    
   async componentDidMount() {
-    
+    //this.props.history.replace(this.props.history.location)
     const { movieId } = this.props.match.params;
     
     const response = await API.ReviewsApi(movieId)

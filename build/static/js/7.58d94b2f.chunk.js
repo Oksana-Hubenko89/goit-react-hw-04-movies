@@ -1,2 +1,0 @@
-(this["webpackJsonpgoit-react-hw-03-image-finder"]=this["webpackJsonpgoit-react-hw-03-image-finder"]||[]).push([[7],{78:function(t,e,i){"use strict";i.r(e),i.d(e,"default",(function(){return r}));var n=i(1);function r(){return Object(n.jsx)("h1",{children:"404 \u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430 :("})}}}]);
-//# sourceMappingURL=7.58d94b2f.chunk.js.map
