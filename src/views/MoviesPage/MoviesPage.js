@@ -9,15 +9,16 @@ import 'react-toastify/dist/ReactToastify.css';
 class MoviesPage extends Component {
  
      state = {
-          movies: null,
+          movies: [],
          
      }
     
-    componentWillUnmount() {
+   async componentDidMount() {
         const { query } = parseQueryString(this.props.location.search);
         console.log(query);
         if (query) {
-            API.Search(query).then(movies => this.setState({ MovieList }));
+           const response = await API.Search(query);
+        this.setState({movies:response.data.results } );
         }
     }
      async componentDidUpdate(prevProps, prevState) {
